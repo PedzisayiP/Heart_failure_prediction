@@ -10,13 +10,17 @@ import pickle
 from PIL import Image
 model = pickle.load(open('RandomForest.pkl', 'rb'))
 
-st.header("Heart Disease Classification:")
+st.header("Heart Disease Prediction:")
 image = Image.open('pertz.jpg')
 st.image(image, use_column_width=True)
 st.write("Please insert values, to get prediction")
 
-Age = st.slider('Age:', 10.0, 120.0)
-Sex = st.slider('Sex:', 0.0, 1.0)
+Age = st.slider('Age:', 10, 120)
+Sex = st.radio("Select Gender:", (1,0))
+if (Sex == 1):
+    st.success("Male")
+else:
+    st.success("Female")
 ChsetPain = st.slider('Chest Pain Type:', 1.0, 4.0)
 RestingBP = st.slider('Resting BP:', 90.0, 200.0)
 Cholesterol = st.slider('Cholesterol:', 100.0, 300.0)
