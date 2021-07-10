@@ -21,15 +21,29 @@ if (Sex == 1):
     st.success("Male")
 else:
     st.success("Female")
-ChsetPain = st.slider('Chest Pain Type:', 1.0, 4.0)
-RestingBP = st.slider('Resting BP:', 90.0, 200.0)
-Cholesterol = st.slider('Cholesterol:', 100.0, 300.0)
-FastingBS = st.slider('Fasting Blood Sugr:', 0.0, 1.0)
-RestingECG = st.slider('Resting ECG:', 0.0, 2.0)
-MaxHR = st.slider('Maximum Heart Rate:', 85.0, 200.0)
-ExAngina = st.slider('Exercise Angina:', 0.0, 1.0)
-OldPeak = st.slider('Old Peak:', 0.0, 5.0)
-STslope = st.slider('ST Slope:', 0.0, 1.0)
+ChsetPain = st.slider('Chest Pain Type:', 1, 4)
+if (ChsetPain == 1):
+    st.success("Typical Angina")
+elif (ChsetPain == 2):
+    st.success("Atypical Angina")
+elif (ChsetPain == 3):
+    st.success("Non-anginal Pain")
+else:
+    st.success("Asymptomatic")
+RestingBP = st.slider('Resting BP:', 90, 200)
+Cholesterol = st.slider('Cholesterol (serum cholestoral in mg/dl):', 100, 300)
+FastingBS = st.slider('Fasting Blood Sugar > 120 mg/dl) (1 = true; 0 = false):', 0, 1)
+RestingECG = st.slider('Resting Electrocardiographic Results:', 0, 2)
+if (RestingECG  == 0):
+    st.success(" Normal")
+elif (RestingECG == 1):
+    st.success("Have ST-T wave abnormality (T wave inversions and/or ST elevation or depression of > 0.05 mV)")
+else:
+    st.success(" showing probable or definite left ventricular hypertrophy by Estes' criteria")
+MaxHR = st.slider('Maximum Heart Rate:', 85, 200)
+ExAngina = st.slider('Exercise Induced Angina(1 = yes; 0 = no):', 0, 1)
+OldPeak = st.slider('Old Peak:', 0, 5)
+STslope = st.slider('ST Slope:', 0, 1)
 data = {'age': Age,
         'sex': Sex,
         'chest pain type': ChsetPain,
